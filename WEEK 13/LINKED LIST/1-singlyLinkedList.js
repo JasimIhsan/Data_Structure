@@ -267,21 +267,21 @@ link.addLast(60);
 
 link.print();
 
-// link.sort();
+link.sort();
 
 // link.reverse()
 
 console.log("\nSize of the Linked List : ", link.size());
 
 // link2.addFirst(600)
-link2.addLast(100);
-link2.addLast(400);
-link2.addLast(200);
-link2.addLast(500);
-link2.addLast(300);
+// link2.addLast(100);
+// link2.addLast(400);
+// link2.addLast(200);
+// link2.addLast(500);
+// link2.addLast(300);
 
-link2.print();
+// link2.print();
 
 // link.combineSort(link2);
 
-link.sort();
+// link.sort();

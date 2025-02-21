@@ -11,5 +11,7 @@ const insertionSort = (arr) => {
     return arr;
 };
 
-console.log(insertionSort([8, 20, -2, 4, -6]));
-
+//ins = 4
+console.log(insertionSort([8, 20, -2, 4, -6])); // [-2, 4, 8, 20, -6]
+//i = 3
+//j = 0

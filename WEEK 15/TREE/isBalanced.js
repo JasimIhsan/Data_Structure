@@ -1,60 +1,57 @@
 class TreeNode {
-    constructor(value) {
-        this.val = value;
-        this.left = null;
-        this.right = null;
-    }
+	constructor(value) {
+		this.val = value;
+		this.left = null;
+		this.right = null;
+	}
 }
 
 class BinaryTree {
-    constructor() {
-        this.root = null;
-    }
+	constructor() {
+		this.root = null;
+	}
 
-    insert(value) {
-        const node = new TreeNode(value);
-        if (!this.root) {
-            this.root = node;
-            return;
-        } else {
-            this._insertNode(this.root, node);
-        }
-    }
+	insert(value) {
+		const node = new TreeNode(value);
+		if (!this.root) {
+			this.root = node;
+			return;
+		} else {
+			this._insertNode(this.root, node);
+		}
+	}
 
-    _insertNode(node, newNode) {
-        if (node.val > newNode.val) {
-            if (node.left) {
-                this._insertNode(node.left, newNode);
-            } else {
-                node.left = newNode;
-            }
-        } else if (node.val < newNode.val) {
-            if (node.right) {
-                this._insertNode(node.right, newNode);
-            } else {
-                node.right = newNode;
-            }
-        } else {
-            console.log('Value already exists')
-        }
-    }
+	_insertNode(node, newNode) {
+		if (node.val > newNode.val) {
+			if (node.left) {
+				this._insertNode(node.left, newNode);
+			} else {
+				node.left = newNode;
+			}
+		} else if (node.val < newNode.val) {
+			if (node.right) {
+				this._insertNode(node.right, newNode);
+			} else {
+				node.right = newNode;
+			}
+		} else {
+			console.log("Value already exists");
+		}
+	}
 
+	isBalanced(node = this.root) {
+		return this.checkBalance(node).balanced;
+	}
 
-    isBalanced(node = this.root) {
-        return this.checkBalance(node).balanced;
-    }
+	checkBalance(node) {
+		if (!node) return { height: 0, balanced: true };
+		const left = this.checkBalance(node.left);
+		const right = this.checkBalance(node.right);
 
-    checkBalance(node) {
-        if (!node) return {height: 0, balanced: true};
-        const left = this.checkBalance(node.left);
-        const right = this.checkBalance(node.right);
-
-        const balanced = left.balanced && right.balanced && Math.abs(left.height - right.height) <= 1;
-        const height = Math.max(left.height, right.height) + 1;
-        return {height, balanced}
-    }
-
-
+		const balanced = left.balanced && right.balanced && Math.abs(left.height - right.height) <= 1;
+		const height = Math.max(left.height, right.height) + 1;
+		return { height, balanced };
+	}
 }
 
 const bst = new BinaryTree();
